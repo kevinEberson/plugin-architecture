@@ -1,0 +1,7 @@
+{
+    "IID": "org.example.HelloPluginInterface",
+    "MetaData": {
+        "Name": "HelloWorldPlugin",
+        "Version": 1.0
+    }
+}
