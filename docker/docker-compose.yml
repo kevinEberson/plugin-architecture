@@ -1,14 +1,32 @@
 version: '3.8'
 
 services:
-
+  # fakedsmr
   python-fakedsmr:
     build: ./fakedsmr
-    # environment:
-    #   - BROKER_ADDRESS=mosquitto
-    # depends_on:
-    #   - mosquitto
+    environment:
+      - BROKER_ADDRESS=mosquitto
+    depends_on:
+      - mosquitto
     restart: unless-stopped
     profiles:
       - fakedsmr
 
+  # mqtt broker
+  mosquitto:
+      image: eclipse-mosquitto:2
+      ports:
+          - 1883:1883
+          - 9001:9001
+      volumes:
+          - ./configs/mosquitto/config:/mosquitto/config
+          - ./configs/mosquitto/data:/mosquitto/data
+          - ./configs/mosquitto/log:/mosquitto/log
+          - ./configs/mosquitto/passwd:/mosquitto/passwd
+      networks:
+          - mosquitto
+
+networks:
+  mosquitto:
+      name: mosquitto
+      driver: bridge
