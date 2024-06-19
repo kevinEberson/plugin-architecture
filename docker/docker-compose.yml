@@ -24,6 +24,17 @@ services:
       networks:
           - mosquitto
 
+  # nodered
+  nodered:
+    image: nodered/node-red:latest
+    ports:
+      - 1880:1880
+    depends_on:
+      - mosquitto
+    networks:
+      - mosquitto
+
+
 networks:
   mosquitto:
       name: mosquitto
