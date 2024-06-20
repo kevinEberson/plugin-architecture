@@ -93,6 +93,8 @@ def on_connect(client, userdata, flags, rc):
         print(f"Failed to connect, return code {rc}\n")
 
 client = mqtt.Client()
+client.username_pw_set("client", "client@2024")
+
 client.on_connect = on_connect
 client.connect(BROKER_ADDRESS)
 
@@ -105,7 +107,7 @@ try:
             topic = f"P1-DONGLE-PRO/{key}"
             client.publish(topic, json.dumps({key: value}))
             print(f"Published to {topic}: {value}")
-        time.sleep(10)  # Adjust the frequency of publishing as needed
+        time.sleep(10)
 except KeyboardInterrupt:
     print("Script interrupted.")
 finally:
