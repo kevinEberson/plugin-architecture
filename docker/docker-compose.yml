@@ -9,6 +9,8 @@ services:
     restart: unless-stopped
     profiles:
       - fakedsmr
+    networks:
+      - mosquitto
 
   # mqtt broker
   mosquitto:
