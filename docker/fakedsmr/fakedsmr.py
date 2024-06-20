@@ -3,8 +3,9 @@ import string
 import time
 import json
 import paho.mqtt.client as mqtt
+import os
 
-BROKER_ADDRESS = "your_mqtt_broker_address"
+BROKER_ADDRESS = os.getenv("BROKER_ADDRESS", "mosquitto")
 
 # Function to generate random string of given length
 def random_string(length):
