@@ -2,7 +2,7 @@ qt_add_plugin(helloworldplugin
     CLASS_NAME HelloWorldPlugin
     helloworldplugin.cpp helloworldplugin.h
     plugininterface.h
-    helloworld.json
+    plugininterface.json
 )
 
 set_target_properties(helloworldplugin PROPERTIES
