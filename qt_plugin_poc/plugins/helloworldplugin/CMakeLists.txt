@@ -1,7 +1,7 @@
 qt_add_plugin(helloworldplugin
     CLASS_NAME HelloWorldPlugin
     helloworldplugin.cpp helloworldplugin.h
-    helloplugininterface.h
+    plugininterface.h
     helloworld.json
 )
 
