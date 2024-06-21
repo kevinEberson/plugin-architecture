@@ -56,3 +56,6 @@ compile_commands.json
 # Mosquitto specific files to be ommitted
 mosquitto.db
 mosquitto.log
+
+#nodered specific ignores
+.npm

@@ -1,0 +1,342 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cf39c4ec61cf4c96",
+        "type": "mqtt-broker",
+        "name": "mosquitto",
+        "broker": "mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "963a605fa9ddd362",
+        "type": "ui_tab",
+        "name": "EASY dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "108d0e89a4fa5a9b",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ef8747e517cbcd41",
+        "type": "ui_group",
+        "name": "EASY",
+        "tab": "963a605fa9ddd362",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f3e15672914428c8",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "P1-DONGLE-PRO/voltage_l1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cf39c4ec61cf4c96",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "eaa6d5c386570730",
+                "82e0f7dea9de75c4"
+            ]
+        ]
+    },
+    {
+        "id": "b378c03e060d9d53",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "P1-DONGLE-PRO/power_delivered_l1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cf39c4ec61cf4c96",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "6ea89e9dbcafabd0",
+                "71a089277fb91993"
+            ]
+        ]
+    },
+    {
+        "id": "eaa6d5c386570730",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6ea89e9dbcafabd0",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e2b2a431119b566d",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "ef8747e517cbcd41",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "current line voltage",
+        "label": "Volts ",
+        "format": "{{value}}",
+        "min": "210",
+        "max": "250",
+        "colors": [
+            "#ffff00",
+            "#00ff00",
+            "#ffff00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 870,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "546fec41a719854d",
+        "type": "ui_chart",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "ef8747e517cbcd41",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Netted energy in kWh",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "12",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "82e0f7dea9de75c4",
+        "type": "split",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "splt": ":",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "e2b2a431119b566d"
+            ]
+        ]
+    },
+    {
+        "id": "71a089277fb91993",
+        "type": "split",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "splt": ":",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 460,
+        "wires": [
+            [
+                "546fec41a719854d"
+            ]
+        ]
+    }
+]
