@@ -2,16 +2,16 @@
 #define HELLOWORLDPLUGIN_H
 
 #include <QObject>
-#include "helloplugininterface.h"
+#include "plugininterface.h"
 
-class HelloWorldPlugin : public QObject, public HelloPluginInterface
+class HelloWorldPlugin : public QObject, public PluginInterface
 {
     Q_OBJECT
-    Q_INTERFACES(HelloPluginInterface)
-    Q_PLUGIN_METADATA(IID "org.example.HelloPluginInterface" FILE "helloworld.json")
+    Q_INTERFACES(PluginInterface)
+    Q_PLUGIN_METADATA(IID "org.example.PluginInterface" FILE "plugininterface.json")
 
 public:
-    void hello() override;
+    void usePlugin() override;
 };
 
 #endif // HELLOWORLDPLUGIN_H
