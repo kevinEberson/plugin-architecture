@@ -5,6 +5,8 @@ qt_add_plugin(p1plugin
     plugininterface.json
 )
 
+find_package(Qt6 REQUIRED COMPONENTS Network)
+
 set_target_properties(p1plugin PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/plugins"
 )
@@ -14,7 +16,7 @@ target_include_directories(p1plugin PRIVATE
 )
 
 target_link_libraries(p1plugin PRIVATE
-    Qt6::Core
+    Qt6::Core Qt6::Network
 )
 
 install(TARGETS p1plugin
