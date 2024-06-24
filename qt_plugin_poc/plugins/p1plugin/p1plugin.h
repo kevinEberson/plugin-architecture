@@ -11,7 +11,7 @@ class P1Plugin : public QObject, public PluginInterface
     Q_PLUGIN_METADATA(IID "org.example.PluginInterface" FILE "plugininterface.json")
 
 public:
-    void goodby() override;
+    void usePlugin() override;
 };
 
 #endif // P1PLUGIN_H
