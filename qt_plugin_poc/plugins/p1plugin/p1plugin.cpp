@@ -3,5 +3,5 @@
 
 void P1Plugin::usePlugin()
 {
-    qDebug() << "Goodby World!";
+    qDebug() << "Getting data from broker";
 }
