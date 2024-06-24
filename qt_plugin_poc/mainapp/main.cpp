@@ -1,66 +1,96 @@
 #include <QCoreApplication>
 #include <QPluginLoader>
+#include <QTextStream>
 #include <QDebug>
 
-#include "../plugins/helloworldplugin/helloplugininterface.h"
-#include "../plugins/goodbyworldplugin/goodbyplugininterface.h"
+#include "../plugins/helloworldplugin/plugininterface.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QString pluginPath = QCoreApplication::applicationDirPath() + "/helloworldplugin/helloworldplugin.dll";
+    // Setup user input
+    QTextStream stream(stdin);
 
+    // Plugin paths
+    QString pluginPath = QCoreApplication::applicationDirPath() + "/plugins";
+    QString helloPluginPath = pluginPath + "/helloworldplugin.dll";
+    QString p1PluginPath = pluginPath + "/p1plugin.dll";
+
+    // Hello plugin load
     // Load the helloworld plugin
-    QPluginLoader helloLoader(pluginPath);
+    QPluginLoader helloLoader(helloPluginPath);
     if (!helloLoader.load()) {
         qDebug() << "Error loading plugin:" << helloLoader.errorString();
         return 1;
     }
 
     // Access the helloworld plugin
-    HelloPluginInterface *helloPlugin = qobject_cast<HelloPluginInterface*>(helloLoader.instance());
+    PluginInterface *helloPlugin = qobject_cast<PluginInterface*>(helloLoader.instance());
     if (!helloPlugin) {
-        qDebug() << "Error casting plugin instance";
+        qDebug() << "Error casting hello plugin instance";
         return 1;
     }
 
-    // Use the plugin
-    helloPlugin->hello();
+    // p1 plugin load
+    // Load the helloworld plugin
+    QPluginLoader p1Loader(p1PluginPath);
+    if (!p1Loader.load()) {
+        qDebug() << "Error loading plugin:" << p1Loader.errorString();
+        return 1;
+    }
 
-    // Unload the plugin
+    // Access the helloworld plugin
+    PluginInterface *p1Plugin = qobject_cast<PluginInterface*>(p1Loader.instance());
+    if (!p1Plugin) {
+        qDebug() << "Error casting p1 plugin instance";
+        return 1;
+    }
+
+    qInfo();
+    qInfo() << "EASY backend plugin manager";
+    qInfo() << "Available commands:";
+    qInfo() << "hello";
+    qInfo() << "p1";
+    qInfo() << "quit";
+    qInfo();
+
+    while (true)
+    {
+        qInfo() << "Enter a command:" << Qt::endl;
+        QString command = stream.readLine().toLower();
+
+        if(command == "quit")
+        {
+            break;
+        }
+        else if(command == "hello")
+        {
+            helloPlugin->usePlugin();
+        }
+        else if(command == "p1")
+        {
+            p1Plugin->usePlugin();
+        }
+        else
+        {
+            qInfo() << "Invalid command";
+        }
+    }
+
+    // Unload the plugins
     if(!helloLoader.unload())
     {
         qDebug() << "Failed to unload HelloWorld plugin";
         return 1;
     }
 
-    // Set the plugin path to the other plugin
-    pluginPath = QCoreApplication::applicationDirPath() + "/goodbyworldplugin/goodbyworldplugin.dll";
-
-    // Load the goodbyworld plugin
-    QPluginLoader goodbyLoader(pluginPath);
-    if (!goodbyLoader.load()) {
-        qDebug() << "Error loading plugin:" << goodbyLoader.errorString();
-        return 1;
-    }
-
-    // Access the goodbyworld plugin
-    GoodbyPluginInterface *goodbyPlugin = qobject_cast<GoodbyPluginInterface*>(goodbyLoader.instance());
-    if (!goodbyPlugin) {
-        qDebug() << "Error casting plugin instance";
-        return 1;
-    }
-
-    // Use the plugin
-    goodbyPlugin->goodby();
-
-    // Unload the plugin
-    if(!goodbyLoader.unload())
+    if(!p1Loader.unload())
     {
-        qDebug() << "Failed to unload GoodbyWorld plugin";
+        qDebug() << "Failed to unload P1 plugin";
         return 1;
     }
+
 
     return 0;
 }
