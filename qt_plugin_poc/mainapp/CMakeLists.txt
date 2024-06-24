@@ -2,14 +2,11 @@ qt_add_executable(mainapp
     main.cpp
 )
 
-set_target_properties(mainapp PROPERTIES
-    WIN32_EXECUTABLE TRUE
-    MACOSX_BUNDLE TRUE
-)
-
 target_link_libraries(mainapp PRIVATE
     Qt6::Core
 )
+
+find_package(Qt6 COMPONENTS Core REQUIRED)
 
 set(QT6_IS_SHARED_LIBS_BUILD TRUE)
 
