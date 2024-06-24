@@ -6,7 +6,7 @@ qt_add_plugin(helloworldplugin
 )
 
 set_target_properties(helloworldplugin PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/helloworldplugin"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/plugins"
 )
 
 target_include_directories(helloworldplugin PRIVATE

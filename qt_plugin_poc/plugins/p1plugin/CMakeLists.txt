@@ -6,7 +6,7 @@ qt_add_plugin(p1plugin
 )
 
 set_target_properties(p1plugin PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/p1plugin"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/plugins"
 )
 
 target_include_directories(p1plugin PRIVATE
