@@ -331,11 +331,106 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
+        "property": "payload",
         "x": 690,
         "y": 460,
         "wires": [
             [
                 "546fec41a719854d"
+            ]
+        ]
+    },
+    {
+        "id": "ee24fa9fe13fd84c",
+        "type": "http in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "url": "/power_delivered",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "76877c7e65936600",
+                "9c9a0f0c4db6e526"
+            ]
+        ]
+    },
+    {
+        "id": "d7778b41a1ba2c58",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "76877c7e65936600",
+        "type": "template",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Doing stuff with data based on your request!",
+        "output": "str",
+        "x": 660,
+        "y": 540,
+        "wires": [
+            [
+                "d7778b41a1ba2c58"
+            ]
+        ]
+    },
+    {
+        "id": "79eb56ada75322ac",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Request from plugin manager",
+        "x": 890,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "9c9a0f0c4db6e526",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Request from plugin manager",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 600,
+        "wires": [
+            [
+                "79eb56ada75322ac"
             ]
         ]
     }
