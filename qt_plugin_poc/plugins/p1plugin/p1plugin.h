@@ -1,10 +1,10 @@
-#ifndef HELLOWORLDPLUGIN_H
-#define HELLOWORLDPLUGIN_H
+#ifndef P1PLUGIN_H
+#define P1PLUGIN_H
 
 #include <QObject>
 #include "plugininterface.h"
 
-class HelloWorldPlugin : public QObject, public PluginInterface
+class P1Plugin : public QObject, public PluginInterface
 {
     Q_OBJECT
     Q_INTERFACES(PluginInterface)
@@ -14,4 +14,4 @@ public:
     void usePlugin() override;
 };
 
-#endif // HELLOWORLDPLUGIN_H
+#endif // P1PLUGIN_H

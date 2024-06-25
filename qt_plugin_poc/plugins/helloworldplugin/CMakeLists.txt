@@ -1,12 +1,12 @@
 qt_add_plugin(helloworldplugin
     CLASS_NAME HelloWorldPlugin
     helloworldplugin.cpp helloworldplugin.h
-    helloplugininterface.h
-    helloworld.json
+    plugininterface.h
+    plugininterface.json
 )
 
 set_target_properties(helloworldplugin PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/helloworldplugin"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/plugins"
 )
 
 target_include_directories(helloworldplugin PRIVATE

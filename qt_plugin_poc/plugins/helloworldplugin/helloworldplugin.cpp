@@ -1,7 +1,7 @@
 #include "helloworldplugin.h"
 #include <QDebug>
 
-void HelloWorldPlugin::hello()
+void HelloWorldPlugin::usePlugin()
 {
     qDebug() << "Hello World!";
 }
