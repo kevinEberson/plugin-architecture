@@ -354,7 +354,7 @@
         "wires": [
             [
                 "76877c7e65936600",
-                "79eb56ada75322ac"
+                "9c9a0f0c4db6e526"
             ]
         ]
     },
@@ -403,8 +403,35 @@
         "className": "",
         "topic": "",
         "name": "Request from plugin manager",
-        "x": 730,
+        "x": 890,
         "y": 600,
         "wires": []
+    },
+    {
+        "id": "9c9a0f0c4db6e526",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Request from plugin manager",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 600,
+        "wires": [
+            [
+                "79eb56ada75322ac"
+            ]
+        ]
     }
 ]
